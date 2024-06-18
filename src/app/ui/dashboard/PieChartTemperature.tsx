@@ -1,6 +1,6 @@
 "use client";
 
-import { getColor } from "@/script/temperatureColor";
+import { getTempColor } from "@/script/getColor";
 import { Pie, PieChart } from "recharts";
 import React from "react";
 
@@ -15,7 +15,7 @@ interface CustomizedLabelProps {
 }
 
 export function PieChartTemperature({ data }: { data: any }) {
-  let newColor = getColor(data[0].value);
+  let newColor = getTempColor(data[0].value);
 
   // Fonction pour rendre le libellé au centre du cercle
   const renderCustomizedLabel = ({ cx, cy, index }: CustomizedLabelProps) => {

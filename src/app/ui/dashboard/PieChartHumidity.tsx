@@ -2,7 +2,7 @@
 
 import { Pie, PieChart } from "recharts";
 import React from "react";
-import { getHumidity } from "@/script/temperatureColor";
+import { getHumidityColor } from "@/script/getColor";
 
 interface CustomizedLabelProps {
   cx: number;
@@ -15,13 +15,12 @@ interface CustomizedLabelProps {
 }
 
 export function PieChartHumidity({ data }: { data: any }) {
-  let newFade = getHumidity(data[0].value);
+  let newFade = getHumidityColor(data[0].value);
 
   // Fonction pour rendre le libellé au centre du cercle
   const renderCustomizedLabel = ({ cx, cy, index }: CustomizedLabelProps) => {
     return (
-      <text
-        x={cx}
+      <text x={cx}
         y={cy}
         fill="black"
         textAnchor="middle"
